@@ -7,32 +7,35 @@
 #define MIC 1
 
 int main() {
+    // 初期化
     long frameCnt = 0;
     int score = 0, line = 0, level = 1;
     char *s = (char*)malloc(15);
-
-    // Window初期化
     cuiwin::Window win(55, 40);
     win.setChar('*');
 
     // メインループ
     while(1) {
-        win.refresh();
+        if(frameCnt % 40 == 0) {
+            win.refresh();
 
-        // 盤面の区切り
-        win.setChar('|');
-        win.drawRect(30, 0, 1, 40);
+            // 盤面の区切り
+            win.setChar('|');
+            win.drawRect(30, 0, 1, 40);
 
-        // 各種情報
-        sprintf(s, "SCORE: %d", score);
-        win.drawText(33, 5, s);
-        sprintf(s, "LINE : %d", line);
-        win.drawText(33, 7, s);
-        sprintf(s, "LEVEL: %d", level);
-        win.drawText(33, 9, s);
+            // 各種情報
+            sprintf(s, "SCORE: %d", score);
+            win.drawText(33, 5, s);
+            sprintf(s, "LINE : %d", line);
+            win.drawText(33, 7, s);
+            sprintf(s, "LEVEL: %d", level);
+            win.drawText(33, 9, s);
 
-        // 画面更新
-        win.update();
+            // 画面更新
+            win.update();
+        }
+
+        // 次フレームまで待機
         usleep(25*MIL);
         ++ frameCnt;
     }
