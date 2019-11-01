@@ -12,6 +12,7 @@ Window::Window(int width, int height) {
     this->width = width;
     this->height = height;
     this->buf = (char*)std::malloc(width*height);
+    this->drawC = '*';
     init();
     refresh();
 }
@@ -32,9 +33,13 @@ void Window::init() {
     std::cout << std::string(height, '\n');
 }
 
+void Window::setChar(char c) {
+    this->drawC = c;
+}
+
 void Window::drawDot(int x, int y) {
     if(0 <= x && x < width && 0 <= y && y < height)
-        this->buf[x+y*width] = '*';
+        this->buf[x+y*width] = drawC;
 }
 
 void Window::drawRect(int x0, int y0, int w, int h) {

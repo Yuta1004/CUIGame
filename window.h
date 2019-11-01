@@ -12,6 +12,7 @@ namespace cuiwin {
         ~Window();
         int getWidth();
         int getHeight();
+        void setChar(char c);
         void drawDot(int x, int y);
         void drawRect(int x0, int y0, int w, int h);
         void drawText(int x, int y, const char *s);
@@ -21,7 +22,7 @@ namespace cuiwin {
     private:
         void init();
         int width, height;
-        char *buf;
+        char *buf, drawC;
 
     };
 

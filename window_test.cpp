@@ -10,6 +10,7 @@ int main() {
     int x = 5, y = 0;
     while(1) {
         win.refresh();
+        win.setChar('O');
         win.drawRect(x, y, 4, 2);
         win.update();
 
