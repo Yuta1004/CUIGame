@@ -11,7 +11,7 @@ namespace cuiwin {
         int getWidth();
         int getHeight();
         void refresh();
-        void draw();
+        void update();
 
     private:
         int width, height;

@@ -6,6 +6,5 @@ int main() {
     std::cout << "Width : " << win.getWidth() << std::endl;
     std::cout << "Height : " << win.getHeight() << std::endl;
     win.refresh();
-    win.draw();
-
+    win.update();
 }

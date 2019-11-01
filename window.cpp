@@ -11,6 +11,7 @@ Window::Window(int width, int height) {
     this->width = width;
     this->height = height;
     this->buf = (char*)std::malloc(width*height);
+    this->refresh();
 }
 
 Window::~Window() {
@@ -29,10 +30,10 @@ void Window::refresh() {
     int width = this->width;
     int height = this->height;
     for(int idx = 0; idx < width*height; ++ idx)
-        buf[idx] = ' ';
+        this->buf[idx] = ' ';
 }
 
-void Window::draw() {
+void Window::update() {
     // 高さ, 幅など
     int width = this->width;
     int height = this->height;
