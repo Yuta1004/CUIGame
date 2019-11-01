@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include <unistd.h>
 #include "window.h"
 #include "kbhit.h"
@@ -11,17 +12,19 @@ bool keyEvent();
 
 int main() {
     // 初期化
-    long frameCnt = 0;
+    long befTime = 0;
     int score = 0, line = 0, level = 1;
     char *s = (char*)malloc(15);
     cuiwin::Window win(55, 40);
-    win.setChar('*');
 
     // メインループ
     while(1) {
-        keyEvent();
+        bool keyResult= keyEvent();
+        long nowTime = std::time(nullptr);
 
-        if(frameCnt % 40 == 0) {
+        if(keyResult || nowTime-befTime > 0) {
+            // 状態更新
+            befTime = std::time(nullptr);
             win.refresh();
 
             // 盤面の区切り
@@ -40,26 +43,18 @@ int main() {
             win.update();
         }
 
-        // 次フレームまで待機
-        usleep(25*MIL);
-        ++ frameCnt;
+        usleep(40*MIL);
     }
 
-    // 後処理
     free(s);
 }
 
 bool keyEvent() {
-    bool result = true;
-    if(kbhit()) {
-        switch(std::getchar()) {
-        case 'q':
-            exit(0);
+    if(!kbhit()) return false;
 
-        default:
-            result = false;
-            break;
-        }
+    switch(std::getchar()) {
+    case 'q':
+        exit(0);
     }
-    return result;
+    return true;
 }
