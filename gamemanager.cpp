@@ -1,6 +1,8 @@
+#include <cstdio>
 #include "gamemanager.h"
 #include "game.h"
 #include "window.h"
+#include "kbhit.h"
 
 using namespace mgameman;
 
@@ -16,4 +18,10 @@ GameManager::~GameManager() {
 
 void GameManager::setFrameRate(int frameRate) {
     this->frameRate = frameRate;
+}
+
+char GameManager::checkKeyState() {
+    if(kbhit())
+        return (char)std::getchar();
+    return '\0';
 }

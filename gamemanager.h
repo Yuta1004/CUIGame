@@ -18,6 +18,9 @@ namespace mgameman {
         mgame::Game *game;
         cuiwin::Window *win;
         int frameRate;
+
+        char checkKeyState();
+
     };
 }
 
