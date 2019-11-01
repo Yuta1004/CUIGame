@@ -7,12 +7,14 @@ namespace cuiwin {
 
     public:
         Window(int width, int height);
+        ~Window();
         int getWidth();
         int getHeight();
         void draw();
 
     private:
         int width, height;
+        char *buf;
 
     };
 

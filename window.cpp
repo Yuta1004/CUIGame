@@ -10,6 +10,11 @@ using namespace cuiwin;
 Window::Window(int width, int height) {
     this->width = width;
     this->height = height;
+    this->buf = (char*)std::malloc(width*height);
+}
+
+Window::~Window() {
+    free(buf);
 }
 
 int Window::getWidth() {
