@@ -1,6 +1,8 @@
 #ifndef WINDOWM
 #define WINDOWM
 
+#include <string>
+
 namespace cuiwin {
 
     class Window {
@@ -12,6 +14,7 @@ namespace cuiwin {
         int getHeight();
         void drawDot(int x, int y);
         void drawRect(int x0, int y0, int w, int h);
+        void drawText(int x, int y, const char *s);
         void refresh();
         void update();
 

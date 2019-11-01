@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
+#include <cmath>
 #include <iostream>
 #include <string>
 #include "window.h"
@@ -35,6 +36,12 @@ void Window::drawRect(int x0, int y0, int w, int h) {
     for(int y = y0; y < y0+h; ++ y)
         for(int x = x0; x< x0+w; ++ x)
             drawDot(x, y);
+}
+
+void Window::drawText(int x, int y, const char *s) {
+    int size = std::min(width-x, (int)std::strlen(s));
+    for(int idx = 0; idx < size; ++ idx)
+        buf[x+y*width+idx] = s[idx];
 }
 
 void Window::refresh() {
