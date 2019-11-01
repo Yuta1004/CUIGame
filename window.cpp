@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cmath>
+#include <cstdarg>
 #include <iostream>
 #include <string>
 #include "window.h"
@@ -48,7 +49,14 @@ void Window::drawRect(int x0, int y0, int w, int h) {
             drawDot(x, y);
 }
 
-void Window::drawText(int x, int y, const char *s) {
+void Window::drawText(int x, int y, const char *fmt, ...) {
+    // 文字列構築
+    std::va_list va;
+    va_start(va, fmt);
+    char *s = (char*)malloc(30);
+    std::vsprintf(s, fmt, va);
+    va_end(va);
+
     int size = std::min(width-x, (int)std::strlen(s));
     for(int idx = 0; idx < size; ++ idx)
         buf[x+y*width+idx] = s[idx];

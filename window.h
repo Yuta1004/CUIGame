@@ -15,7 +15,7 @@ namespace cuiwin {
         void setChar(char c);
         void drawDot(int x, int y);
         void drawRect(int x0, int y0, int w, int h);
-        void drawText(int x, int y, const char *s);
+        void drawText(int x, int y, const char *s, ...);
         void refresh();
         void update();
 

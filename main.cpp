@@ -14,7 +14,6 @@ int main() {
     // 初期化
     long befTime = 0;
     int score = 0, line = 0, level = 1;
-    char *s = (char*)malloc(15);
     cuiwin::Window win(55, 40);
 
     // メインループ
@@ -32,12 +31,9 @@ int main() {
             win.drawRect(30, 0, 1, 40);
 
             // 各種情報
-            sprintf(s, "SCORE: %d", score);
-            win.drawText(33, 5, s);
-            sprintf(s, "LINE : %d", line);
-            win.drawText(33, 7, s);
-            sprintf(s, "LEVEL: %d", level);
-            win.drawText(33, 9, s);
+            win.drawText(33, 5, "SCORE : %d", score);
+            win.drawText(33, 7, "LINE : %d", line);
+            win.drawText(33, 9, "LEVEL : %d", level);
 
             // 画面更新
             win.update();
@@ -45,8 +41,6 @@ int main() {
 
         usleep(40*MIL);
     }
-
-    free(s);
 }
 
 bool keyEvent() {

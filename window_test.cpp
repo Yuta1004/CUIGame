@@ -12,6 +12,7 @@ int main() {
         win.refresh();
         win.setChar('O');
         win.drawRect(x, y, 4, 2);
+        win.drawText(20, 10, "POS: (%d, %d)", x, y);
         win.update();
 
         ++ y;
