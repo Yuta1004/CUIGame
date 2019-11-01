@@ -15,5 +15,9 @@ run:
 
 
 test:
+	@echo "Compile..."
 	$(G++) -o window_test window_test.cpp window.cpp
+	$(G++) -o game_test game_test.cpp window.cpp
+	@echo "Exec..."
 	./window_test
+	./game_test
