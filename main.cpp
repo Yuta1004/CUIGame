@@ -7,12 +7,7 @@
 #define MIL 1000
 #define MIC 1
 
-char checkKeyEvent() {
-    if(kbhit()) {
-        return std::getchar();
-    }
-    return 0;
-}
+void keyEvent();
 
 int main() {
     // 初期化
@@ -24,6 +19,8 @@ int main() {
 
     // メインループ
     while(1) {
+        keyEvent();
+
         if(frameCnt % 40 == 0) {
             win.refresh();
 
@@ -52,3 +49,11 @@ int main() {
     free(s);
 }
 
+void keyEvent() {
+    if(kbhit()) {
+        switch(std::getchar()) {
+        case 'q':
+            exit(0);
+        }
+    }
+}
