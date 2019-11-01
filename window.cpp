@@ -1,6 +1,6 @@
 #include "window.h"
 
-using namespace mywindow;
+using namespace cuiwin;
 
 Window::Window(int width, int height) {
     this->width = width;

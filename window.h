@@ -1,7 +1,7 @@
 #ifndef WINDOWM
 #define WINDOWM
 
-namespace mywindow {
+namespace cuiwin {
 
     class Window {
 
