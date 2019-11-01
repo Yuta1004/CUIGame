@@ -27,3 +27,7 @@ test-game:
 test-gameman:
 	$(G++) -o gamemanager_test gamemanager_test.cpp window.cpp gamemanager.cpp kbhit.c
 	./gamemanager_test
+
+
+clean:
+	rm -rf main *_test
