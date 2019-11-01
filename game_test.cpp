@@ -5,9 +5,11 @@ class NullGame : mgame::Game {
 public:
     void init(){}
     void draw(cuiwin::Window *w){}
-    void keyPressed(char key);
+    void keyPressed(char key){}
 };
 
 int main() {
-    NullGame tmp();
+    NullGame *ngame = new NullGame();
+    mgame::Game *game = (mgame::Game*)ngame;
+    delete ngame;
 }
