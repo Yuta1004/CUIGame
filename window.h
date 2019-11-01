@@ -10,6 +10,7 @@ namespace cuiwin {
         ~Window();
         int getWidth();
         int getHeight();
+        void drawDot(int x, int y);
         void refresh();
         void update();
 

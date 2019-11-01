@@ -26,6 +26,11 @@ int Window::getHeight() {
     return this->height;
 }
 
+void Window::drawDot(int x, int y) {
+    if(0 <= x && x < this->width && 0 <= y && y < this->height)
+        this->buf[x+y*this->width] = '*';
+}
+
 void Window::refresh() {
     int width = this->width;
     int height = this->height;
