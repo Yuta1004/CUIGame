@@ -10,6 +10,9 @@ namespace mgameman {
     public:
         GameManager(mgame::Game *game);
         void run();
+
+    private:
+        mgame::Game *game;
     };
 }
 
