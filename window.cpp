@@ -25,6 +25,13 @@ int Window::getHeight() {
     return this->height;
 }
 
+void Window::refresh() {
+    int width = this->width;
+    int height = this->height;
+    for(int idx = 0; idx < width*height; ++ idx)
+        buf[idx] = ' ';
+}
+
 void Window::draw() {
     // 高さ, 幅など
     int width = this->width;

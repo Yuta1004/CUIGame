@@ -10,6 +10,7 @@ namespace cuiwin {
         ~Window();
         int getWidth();
         int getHeight();
+        void refresh();
         void draw();
 
     private:
