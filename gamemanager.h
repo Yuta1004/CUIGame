@@ -12,6 +12,7 @@ namespace mgameman {
         GameManager(mgame::Game *game, int width, int height);
         ~GameManager();
         void setFrameRate(int frameRate);
+        int getFrameRate();
         void run();
 
     private:

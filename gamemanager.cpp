@@ -26,6 +26,10 @@ void GameManager::setFrameRate(int frameRate) {
     this->frameRate = frameRate;
 }
 
+int GameManager::getFrameRate() {
+    return frameRate;
+}
+
 char GameManager::checkKeyState() {
     if(kbhit())
         return (char)std::getchar();
