@@ -1,10 +1,18 @@
 #include <iostream>
 #include <unistd.h>
 #include "window.h"
+#include "kbhit.h"
 
 #define SEC 1000000
 #define MIL 1000
 #define MIC 1
+
+char checkKeyEvent() {
+    if(kbhit()) {
+        return std::getchar();
+    }
+    return 0;
+}
 
 int main() {
     // 初期化
@@ -43,3 +51,4 @@ int main() {
     // 後処理
     free(s);
 }
+

@@ -7,7 +7,7 @@ make:
 
 
 build:
-	$(G++) -o main main.cpp window.cpp
+	$(G++) -o main main.cpp window.cpp kbhit.c
 
 
 run:
