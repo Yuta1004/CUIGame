@@ -1,3 +1,4 @@
+#include <iostream>
 #include <unistd.h>
 #include "window.h"
 
@@ -6,6 +7,7 @@
 #define MIC 1
 
 int main() {
+    long frameCnt = 0;
     int score = 0, line = 0, level = 1;
     char *s = (char*)malloc(15);
 
@@ -31,7 +33,8 @@ int main() {
 
         // 画面更新
         win.update();
-        usleep(1*SEC);
+        usleep(25*MIL);
+        ++ frameCnt;
     }
 
     // 後処理
