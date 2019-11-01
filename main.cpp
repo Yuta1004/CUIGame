@@ -7,7 +7,7 @@
 #define MIL 1000
 #define MIC 1
 
-void keyEvent();
+bool keyEvent();
 
 int main() {
     // 初期化
@@ -49,11 +49,17 @@ int main() {
     free(s);
 }
 
-void keyEvent() {
+bool keyEvent() {
+    bool result = true;
     if(kbhit()) {
         switch(std::getchar()) {
         case 'q':
             exit(0);
+
+        default:
+            result = false;
+            break;
         }
     }
+    return result;
 }
