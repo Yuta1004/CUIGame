@@ -7,8 +7,13 @@ make:
 
 
 build:
-	$(G++) -o main main.cpp
+	$(G++) -o main main.cpp window.cpp
 
 
 run:
 	./main
+
+
+test:
+	$(G++) -o window_test window_test.cpp window.cpp
+	./window_test
