@@ -11,6 +11,7 @@ namespace cuiwin {
         int getWidth();
         int getHeight();
         void drawDot(int x, int y);
+        void drawRect(int x0, int y0, int w, int h);
         void refresh();
         void update();
 

@@ -11,5 +11,6 @@ int main() {
     win.drawDot(12, 4);
     win.drawDot(13, 5);
     win.drawDot(14, 4);
+    win.drawRect(5, 10, 10, 4);
     win.update();
 }

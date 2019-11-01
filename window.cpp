@@ -31,6 +31,12 @@ void Window::drawDot(int x, int y) {
         this->buf[x+y*width] = '*';
 }
 
+void Window::drawRect(int x0, int y0, int w, int h) {
+    for(int y = y0; y < y0+h; ++ y)
+        for(int x = x0; x< x0+w; ++ x)
+            drawDot(x, y);
+}
+
 void Window::refresh() {
     for(int idx = 0; idx < width*height; ++ idx)
         this->buf[idx] = ' ';
