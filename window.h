@@ -19,6 +19,7 @@ namespace cuiwin {
         void update();
 
     private:
+        void init();
         int width, height;
         char *buf;
 
