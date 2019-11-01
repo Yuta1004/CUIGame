@@ -9,6 +9,7 @@ namespace cuiwin {
         Window(int width, int height);
         int getWidth();
         int getHeight();
+        void draw();
 
     private:
         int width, height;
