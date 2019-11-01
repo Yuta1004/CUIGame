@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include "window.h"
 
 int main() {
@@ -6,12 +7,13 @@ int main() {
     std::cout << "Width : " << win.getWidth() << std::endl;
     std::cout << "Height : " << win.getHeight() << std::endl;
 
-    win.refresh();
-    win.drawDot(13, 3);
-    win.drawDot(12, 4);
-    win.drawDot(13, 5);
-    win.drawDot(14, 4);
-    win.drawRect(5, 10, 10, 4);
-    win.drawText(5, 15, "hello world");
-    win.update();
+    int x = 5, y = 0;
+    while(1) {
+        win.refresh();
+        win.drawRect(x, y, 4, 2);
+        win.update();
+
+        ++ y;
+        usleep(1*1000000);
+    }
 }

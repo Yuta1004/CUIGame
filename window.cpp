@@ -60,12 +60,13 @@ void Window::update() {
     std::string hfline(width+2, '-');
 
     // カーソル位置合わせ
-    std::cout << "\e[0G\e[" << height << "A";
+    std::printf("\e[%dF\e[0J", height+2);
 
     // 出力
     std::puts(hfline.c_str());
     for(int y = 0; y < height; ++ y) {
         std::strncpy(lbuf, buf+y*width, width);
+        lbuf[width] = '\0';
         std::printf("|%s|\n", lbuf);
     }
     std::puts(hfline.c_str());
