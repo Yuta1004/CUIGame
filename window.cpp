@@ -35,7 +35,7 @@ void Window::draw() {
     // 出力
     std::puts(hfline.c_str());
     for(int y = 0; y < height; ++ y) {
-        std::strncpy(lbuf, "", width);
+        std::strncpy(lbuf, this->buf+y*width, width);
         std::printf("|%s|\n", lbuf);
     }
     std::puts(hfline.c_str());
