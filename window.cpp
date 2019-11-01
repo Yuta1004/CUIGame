@@ -54,6 +54,9 @@ void Window::update() {
     char *lbuf = (char*)std::malloc(width+1);
     std::string hfline(width+2, '-');
 
+    // カーソル位置合わせ
+    std::cout << "\e[0G\e[" << height << "A";
+
     // 出力
     std::puts(hfline.c_str());
     for(int y = 0; y < height; ++ y) {
