@@ -23,10 +23,11 @@ public:
     Tetrimino(int id);
     void rotate();
     void down();
-    char block[5][5];
+    const char *getState();
 
 private:
     int id, x, y;
+    char block[5][5];
 
 };
 

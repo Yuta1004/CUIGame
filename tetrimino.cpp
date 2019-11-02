@@ -35,3 +35,7 @@ void Tetrimino::rotate() {
 void Tetrimino::down() {
     ++ this->y;
 }
+
+const char *Tetrimino::getState() {
+    return (const char*)block;
+}
