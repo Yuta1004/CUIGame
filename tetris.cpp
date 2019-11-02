@@ -27,6 +27,7 @@ void TETRIS::draw(cuiwin::Window *win) {
     if(frameCnt % 10 == 0)
         tetrimino->down();
     if(tetrimino->confirm()) {
+        ++ level;
         updateBoard();
         delete tetrimino;
         std::random_device rnd;
