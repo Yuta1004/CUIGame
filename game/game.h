@@ -3,7 +3,7 @@
 
 #include "window.h"
 
-namespace mgame {
+namespace yngame {
 
     class Game {
 
@@ -15,13 +15,13 @@ namespace mgame {
         void run();
 
         virtual void init() = 0;
-        virtual void draw(cuiwin::Window *w) = 0;
+        virtual void draw(Window *w) = 0;
         virtual void keyPressed(char key) = 0;
 
 
     private:
         int frameRate;
-        cuiwin::Window *win;
+        Window *win;
 
         char checkKeyState();
     };

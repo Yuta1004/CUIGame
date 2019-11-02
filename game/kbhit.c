@@ -5,6 +5,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "kbhit.h"
 
 int kbhit(void) {
     struct termios oldt, newt;

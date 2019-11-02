@@ -6,10 +6,10 @@
 #define MILLI 1000
 #define MICRO 1
 
-using namespace mgame;
+using namespace yngame;
 
 Game::Game(int width, int height) {
-    this->win = new cuiwin::Window(width, height);
+    this->win = new Window(width, height);
 }
 
 void Game::setFrameRate(int frameRate) {

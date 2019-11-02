@@ -42,12 +42,12 @@ private:
 };
 
 
-class TETRIS : mgame::Game {
+class TETRIS : yngame::Game {
 
 public:
     TETRIS();
     void init();
-    void draw(cuiwin::Window *w);
+    void draw(yngame::Window *w);
     void keyPressed(char key);
 
 private:
@@ -56,9 +56,9 @@ private:
     Tetrimino *tetrimino, *holdTet, *nextTet;
 
     void goNextPhase();
-    void drawBoard(cuiwin::Window *win);
-    void drawTetrimino(cuiwin::Window *win);
-    void drawTetrimino(cuiwin::Window *win, Tetrimino *tet, int bx, int by);
+    void drawBoard(yngame::Window *win);
+    void drawTetrimino(yngame::Window *win);
+    void drawTetrimino(yngame::Window *win, Tetrimino *tet, int bx, int by);
     void updateBoard();
     void removeLine();
 };

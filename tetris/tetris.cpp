@@ -18,7 +18,7 @@ void TETRIS::init() {
     holdTet = NULL;
 }
 
-void TETRIS::draw(cuiwin::Window *win) {
+void TETRIS::draw(yngame::Window *win) {
     // 盤面の枠
     win->setChar('|');
     win->drawRect(30, 0, 1, 40);
@@ -109,7 +109,7 @@ void TETRIS::goNextPhase() {
     ++ level;
 }
 
-void TETRIS::drawBoard(cuiwin::Window *win) {
+void TETRIS::drawBoard(yngame::Window *win) {
     win->setChar('*');
     for(int y = 0; y < 20; ++ y)
         for(int x = 0; x < 10; ++ x)
@@ -117,13 +117,13 @@ void TETRIS::drawBoard(cuiwin::Window *win) {
                 win->drawRect(x*3, y*2, 3, 2);
 }
 
-void TETRIS::drawTetrimino(cuiwin::Window *win) {
+void TETRIS::drawTetrimino(yngame::Window *win) {
     int bx = tetrimino->getX();
     int by = tetrimino->getY();
     drawTetrimino(win, tetrimino, bx, by);
 }
 
-void TETRIS::drawTetrimino(cuiwin::Window *win, Tetrimino *tet, int bx, int by) {
+void TETRIS::drawTetrimino(yngame::Window *win, Tetrimino *tet, int bx, int by) {
     const char *blockState = tet->getState();
     for(int y = 0; y < 4; ++ y)
         for(int x = 0; x < 4; ++ x)

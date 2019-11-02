@@ -7,7 +7,7 @@
 #include <string>
 #include "window.h"
 
-using namespace cuiwin;
+using namespace yngame;
 
 Window::Window(int width, int height) {
     this->width = width;

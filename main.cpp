@@ -2,7 +2,7 @@
 #include "tetris/tetris.h"
 
 int main() {
-    mgame::Game *tetris = (mgame::Game*)new TETRIS();
+    yngame::Game *tetris = (yngame::Game*)new TETRIS();
     tetris->setFrameRate(30);
     tetris->run();
 }
