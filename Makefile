@@ -29,10 +29,5 @@ test-gameman:
 	./gamemanager_test
 
 
-test-tetrimino:
-	$(G++) -o tetrimino_test tetrimino_test.cpp tetrimino.cpp
-	./tetrimino_test
-
-
 clean:
 	rm -rf main *_test
