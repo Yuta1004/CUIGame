@@ -1,3 +1,4 @@
+#include <random>
 #include "tetris.h"
 #include "window.h"
 
@@ -30,8 +31,14 @@ void TETRIS::draw(cuiwin::Window *win) {
             if(blockState[x+y*4])
                 win->drawRect((bx+x)*3, (by+y)*2, 3, 2);
 
+    // テトリミノ落下 -> 確定チェック
     if(frameCnt % 10 == 0)
         tetrimino->down();
+    if(tetrimino->confirm()) {
+        delete tetrimino;
+        std::random_device rnd;
+        tetrimino = new Tetrimino(rnd()%7, (char const*)board);
+    }
 
     // スコアなど
     win->drawText(32, 5, "SCORE : %d", score);
