@@ -13,6 +13,7 @@ void TETRIS::init() {
     tetrimino = new Tetrimino(0);
     tetrimino->setBoard((char const*)board);
     nextTet = new Tetrimino(1);
+    holdTet = NULL;
 }
 
 void TETRIS::draw(cuiwin::Window *win) {
@@ -43,6 +44,15 @@ void TETRIS::draw(cuiwin::Window *win) {
 void TETRIS::keyPressed(char key) {
     ++ cnt;
     switch(key) {
+    case 's':{
+        Tetrimino *tmp = tetrimino;
+        tetrimino = holdTet;
+        holdTet = tmp;
+        if(tetrimino == NULL)
+            goNextPhase();
+        break;
+    }
+
     case 'a':
         tetrimino->rotateL();
         break;
@@ -74,9 +84,8 @@ void TETRIS::keyPressed(char key) {
 }
 
 void TETRIS::goNextPhase() {
-    ++ level;
-
-    updateBoard();
+    if(tetrimino != NULL)
+        updateBoard();
     removeLine();
 
     delete tetrimino;
@@ -84,6 +93,7 @@ void TETRIS::goNextPhase() {
     tetrimino = nextTet;
     tetrimino->setBoard((char const*)board);
     nextTet = new Tetrimino(rnd()%7);
+    ++ level;
 }
 
 void TETRIS::drawBoard(cuiwin::Window *win) {
