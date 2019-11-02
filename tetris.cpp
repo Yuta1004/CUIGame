@@ -27,14 +27,8 @@ void TETRIS::draw(cuiwin::Window *win) {
     // テトリミノ落下 -> 確定チェック
     if(frameCnt % 10 == 0)
         tetrimino->down();
-    if(tetrimino->confirm()) {
-        ++ level;
-        updateBoard();
-        removeLine();
-        delete tetrimino;
-        std::random_device rnd;
-        tetrimino = new Tetrimino(rnd()%7, (char const*)board);
-    }
+    if(tetrimino->confirm())
+        goNextPhase();
 
     // スコアなど
     win->drawText(32, 5, "SCORE : %d", score);
@@ -75,6 +69,18 @@ void TETRIS::keyPressed(char key) {
         exit(0);
         break;
     }
+}
+
+void TETRIS::goNextPhase() {
+    ++ level;
+
+    updateBoard();
+    removeLine();
+
+    delete tetrimino;
+    std::random_device rnd;
+    tetrimino = new Tetrimino(rnd()%7, (char const*)board);
+    nextTet = new Tetrimino(rnd()%7, (char const*) board);
 }
 
 void TETRIS::drawBoard(cuiwin::Window *win) {

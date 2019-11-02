@@ -40,8 +40,9 @@ public:
 private:
     int cnt, score, line, level, frameCnt;
     char board[20][10];
-    Tetrimino *tetrimino;
+    Tetrimino *tetrimino, *holdTet, *nextTet;
 
+    void goNextPhase();
     void drawBoard(cuiwin::Window *win);
     void drawTetrimino(cuiwin::Window *win);
     void drawTetrimino(cuiwin::Window *win, Tetrimino *tet, int bx, int by);
