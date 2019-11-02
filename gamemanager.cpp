@@ -41,7 +41,9 @@ void GameManager::run() {
         char key = checkKeyState();
         if(key)
             game->keyPressed(key);
+        win->refresh();
         game->draw(win);
+        win->update();
         usleep(1000.0/frameRate*MILLI);
     }
 }

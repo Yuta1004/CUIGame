@@ -6,10 +6,8 @@ void TETRIS::init() {
 }
 
 void TETRIS::draw(cuiwin::Window *win) {
-    win->refresh();
     win->drawText(5, 5, "Hello TETRIS!");
     win->drawText(5, 6, "KeyCnt : %d", cnt);
-    win->update();
 }
 
 void TETRIS::keyPressed(char key) {
