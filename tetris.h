@@ -16,11 +16,13 @@ public:
     void rotateR();
     void down();
     const char *getState();
+    bool confirm();
 
 private:
     int id, x, y;
     char const *board;
     char block[4][4];
+    bool confirmFlag;
 
     bool checkHit();
 

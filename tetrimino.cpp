@@ -19,6 +19,7 @@ Tetrimino::Tetrimino(int id, char const *board) {
     this->x = 2;
     this->y = 0;
     this->board = board;
+    this->confirmFlag = false;
 }
 
 int Tetrimino::getX() {
@@ -44,7 +45,7 @@ void Tetrimino::moveR() {
 void Tetrimino::down() {
     ++ y;
     if(checkHit())
-        -- y;
+        confirmFlag = true;
 }
 
 void Tetrimino::rotateL() {
@@ -85,6 +86,10 @@ void Tetrimino::rotateR() {
 
 const char *Tetrimino::getState() {
     return (const char*)block;
+}
+
+bool Tetrimino::confirm() {
+    return confirmFlag;
 }
 
 bool Tetrimino::checkHit() {
