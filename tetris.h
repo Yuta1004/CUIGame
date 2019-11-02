@@ -13,7 +13,7 @@ public:
     void keyPressed(char key);
 
 private:
-    int cnt;
+    int cnt, score, line, level;
 
 };
 
