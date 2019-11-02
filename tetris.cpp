@@ -86,8 +86,13 @@ void TETRIS::drawBoard(cuiwin::Window *win) {
 }
 
 void TETRIS::drawTetrimino(cuiwin::Window *win) {
-    int bx = tetrimino->getX(), by = tetrimino->getY();
-    const char *blockState = tetrimino->getState();
+    int bx = tetrimino->getX();
+    int by = tetrimino->getY();
+    drawTetrimino(win, tetrimino, bx, by);
+}
+
+void TETRIS::drawTetrimino(cuiwin::Window *win, Tetrimino *tet, int bx, int by) {
+    const char *blockState = tet->getState();
     for(int y = 0; y < 4; ++ y)
         for(int x = 0; x < 4; ++ x)
             if(blockState[x+y*4])
