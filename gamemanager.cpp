@@ -16,6 +16,7 @@ GameManager::GameManager(mgame::Game *game, int width, int height) {
     this->game = game;
     this->frameRate = 10;
     this->win = new cuiwin::Window(width, height);
+    this->game->init();
 }
 
 GameManager::~GameManager() {
