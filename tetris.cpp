@@ -7,10 +7,7 @@ void TETRIS::init() {
     line = 0;
     level = 1;
     frameCnt = 0;
-
     tetrimino = new Tetrimino(0);
-    for(int tmp = 0; tmp < 7; ++ tmp)
-        tetrimino->down();
 }
 
 void TETRIS::draw(cuiwin::Window *win) {
@@ -46,6 +43,7 @@ void TETRIS::draw(cuiwin::Window *win) {
 
 void TETRIS::keyPressed(char key) {
     ++ cnt;
-    tetrimino->rotate();
+    if(key == 'a') tetrimino->rotateL();
+    if(key == 'd') tetrimino->rotateR();
     if(key == 'q') exit(0);
 }
