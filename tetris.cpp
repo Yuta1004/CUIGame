@@ -121,5 +121,9 @@ void TETRIS::removeLine() {
         if(canRemove)
             ++ y;
     }
+
+    static int baseScore[] = {0, 40, 100, 300, 1200};
+    score += level * baseScore[(sum+1)/2];
     line += (sum+1)/2;
 }
+
