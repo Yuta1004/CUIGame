@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <random>
 #include "tetris.h"
 #include "window.h"
@@ -29,6 +30,7 @@ void TETRIS::draw(cuiwin::Window *win) {
     if(tetrimino->confirm()) {
         ++ level;
         updateBoard();
+        removeLine();
         delete tetrimino;
         std::random_device rnd;
         tetrimino = new Tetrimino(rnd()%7, (char const*)board);
@@ -99,4 +101,25 @@ void TETRIS::updateBoard() {
         for(int x = 0; x < 4; ++ x)
             if(blockState[x+y*4])
                 board[by+y][bx+x] = 1;
+}
+
+void TETRIS::removeLine() {
+    int sum = 0;
+    for(int y = 19; y >= 0; -- y) {
+        // 消せるか確認
+        bool canRemove = true;
+        for(int x = 0; x < 10; ++ x)
+            canRemove &= (bool)board[y][x];
+
+        // 消す
+        sum += canRemove;
+        for(int x = 0; x < 10; ++ x)
+            if(y-sum >= 0)
+                board[y][x] = board[y-sum][x];
+            else
+                board[y][x] = 0;
+        if(canRemove)
+            ++ y;
+    }
+    line += (sum+1)/2;
 }

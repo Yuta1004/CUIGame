@@ -45,6 +45,7 @@ private:
     void drawBoard(cuiwin::Window *win);
     void drawTetrimino(cuiwin::Window *win);
     void updateBoard();
+    void removeLine();
 };
 
 
