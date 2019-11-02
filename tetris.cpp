@@ -55,6 +55,7 @@ void TETRIS::keyPressed(char key) {
         Tetrimino *tmp = tetrimino;
         tetrimino = holdTet;
         holdTet = tmp;
+        holdTet->reset();
         if(tetrimino == NULL)
             goNextPhase();
         break;

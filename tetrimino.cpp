@@ -2,16 +2,6 @@
 #include "tetris.h"
 
 Tetrimino::Tetrimino(int id) {
-    static char blockBase[7][4][4] = {
-        {{0, 0, 0, 0}, {1, 1, 1, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {0, 1, 1, 0}, {1, 1, 0, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {1, 0, 0, 0}, {1, 1, 1, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {0, 0, 1, 0}, {1, 1, 1, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {0, 1, 1, 0}, {0, 1, 1, 0}, {0, 0, 0, 0}},
-        {{0, 0, 0, 0}, {0, 1, 0, 0}, {1, 1, 1, 0}, {0, 0, 0, 0}}
-    };
-
     for(int y = 0; y < 4; ++ y)
         for(int x = 0; x < 4; ++ x)
             block[y][x] = blockBase[id][y][x];
@@ -36,6 +26,14 @@ const char *Tetrimino::getState() {
 
 void Tetrimino::setBoard(char const *board) {
     this->board = board;
+}
+
+void Tetrimino::reset() {
+    x = 2;
+    y = -2;
+    for(int y = 0; y < 4; ++ y)
+        for(int x = 0; x < 4; ++ x)
+            block[y][x] = blockBase[id][y][x];
 }
 
 void Tetrimino::moveL() {
