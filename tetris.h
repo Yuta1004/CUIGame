@@ -17,4 +17,18 @@ private:
 
 };
 
+class Tetrimino {
+
+public:
+    Tetrimino(int id);
+    void rotate();
+    void down();
+
+private:
+    int x, y;
+    char block[5][5];
+
+};
+
+
 #endif
