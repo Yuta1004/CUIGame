@@ -92,6 +92,8 @@ void TETRIS::keyPressed(char key) {
 }
 
 void TETRIS::goNextPhase() {
+    if(tetrimino->getY() < 0)
+        exit(0);
     if(tetrimino != NULL)
         updateBoard();
     removeLine();
