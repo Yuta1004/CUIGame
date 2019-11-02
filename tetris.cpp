@@ -18,11 +18,7 @@ void TETRIS::draw(cuiwin::Window *win) {
     win->drawRect(30, 0, 1, 40);
 
     // 盤面描画
-    win->setChar('*');
-    for(int y = 0; y < 20; ++ y)
-        for(int x = 0; x < 10; ++ x)
-            if(board[y][x])
-                win->drawRect(x*3, y*2, 3, 2);
+    drawBoard(win);
 
     // テトリミノ描画
     int bx = tetrimino->getX(), by = tetrimino->getY();
@@ -73,6 +69,14 @@ void TETRIS::keyPressed(char key) {
         exit(0);
         break;
     }
+}
+
+void TETRIS::drawBoard(cuiwin::Window *win) {
+    win->setChar('*');
+    for(int y = 0; y < 20; ++ y)
+        for(int x = 0; x < 10; ++ x)
+            if(board[y][x])
+                win->drawRect(x*3, y*2, 3, 2);
 }
 
 void TETRIS::updateBoard() {

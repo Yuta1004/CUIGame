@@ -41,6 +41,7 @@ private:
     char board[20][10];
     Tetrimino *tetrimino;
 
+    void drawBoard(cuiwin::Window *win);
     void updateBoard();
 };
 
