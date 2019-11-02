@@ -60,6 +60,14 @@ void TETRIS::keyPressed(char key) {
         tetrimino->moveR();
         break;
 
+    case 'i':
+        tetrimino->downShot();
+        break;
+
+    case 'k':
+        tetrimino->down();
+        break;
+
     case 'q':
         exit(0);
         break;

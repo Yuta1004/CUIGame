@@ -50,6 +50,17 @@ void Tetrimino::down() {
     }
 }
 
+void Tetrimino::downShot() {
+    while(1) {
+        ++ y;
+        if(checkHit()) {
+           -- y;
+           confirmFlag = true;
+           break;
+        }
+    }
+}
+
 void Tetrimino::rotateL() {
     char *newBlock = (char*)calloc(16, sizeof(char));
     for(int y = 0; y < 4 ; ++ y)

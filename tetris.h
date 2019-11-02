@@ -15,6 +15,7 @@ public:
     void rotateL();
     void rotateR();
     void down();
+    void downShot();
     const char *getState();
     bool confirm();
 
