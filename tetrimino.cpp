@@ -31,19 +31,19 @@ int Tetrimino::getY() {
 
 void Tetrimino::moveL() {
     -- x;
-    if(!checkHit())
+    if(checkHit())
         ++ x;
 }
 
 void Tetrimino::moveR() {
     ++ x;
-    if(!checkHit())
+    if(checkHit())
         -- x;
 }
 
 void Tetrimino::down() {
     ++ y;
-    if(!checkHit())
+    if(checkHit())
         -- y;
 }
 
@@ -52,8 +52,16 @@ void Tetrimino::rotateL() {
     for(int y = 0; y < 4 ; ++ y)
         for(int x = 0; x < 4; ++ x)
             newBlock[y+(3-x)*4] = block[y][x];
-    for(int idx = 0; idx < 16; ++ idx)
+
+    for(int idx = 0; idx < 16; ++ idx) {
+        char tmp = block[idx/4][idx%4];
         block[idx/4][idx%4] = newBlock[idx];
+        newBlock[idx] = tmp;
+    }
+
+    if(checkHit())
+        for(int idx = 0; idx < 16; ++ idx)
+            block[idx/4][idx%4] = newBlock[idx];
     free(newBlock);
 }
 
@@ -62,8 +70,16 @@ void Tetrimino::rotateR() {
     for(int y = 0; y < 4 ; ++ y)
         for(int x = 0; x < 4; ++ x)
             newBlock[(3-y)+x*4] = block[y][x];
-    for(int idx = 0; idx < 16; ++ idx)
+
+    for(int idx = 0; idx < 16; ++ idx) {
+        char tmp = block[idx/4][idx%4];
         block[idx/4][idx%4] = newBlock[idx];
+        newBlock[idx] = tmp;
+    }
+
+    if(checkHit())
+        for(int idx = 0; idx < 16; ++ idx)
+            block[idx/4][idx%4] = newBlock[idx];
     free(newBlock);
 }
 
@@ -74,13 +90,14 @@ const char *Tetrimino::getState() {
 bool Tetrimino::checkHit() {
     bool result = true;
     int bx = this->x, by = this->y;
-
     for(int y = 0; y < 4; ++ y) {
         for(int x = 0; x < 4; ++ x) {
-            result &= ((0 <= bx+x && bx+x < 10) || !block[y][x]);
-            result &= ((0 <= by+y && by+y < 20) || !block[y][x]);
-            result &= !(board[bx+x+(by+y)*10] && block[y][x]);
+            if(block[y][x]) {
+                result &= (0 <= bx+x && bx+x < 10);
+                result &= (0 <= by+y && by+y < 20);
+                result &= !board[bx+x+(by+y)*10];
+            }
         }
     }
-    return result;
+    return !result;
 }
