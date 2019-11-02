@@ -10,7 +10,9 @@ void TETRIS::init() {
     line = 0;
     level = 1;
     frameCnt = 0;
-    tetrimino = new Tetrimino(0, (char const*)board);
+    tetrimino = new Tetrimino(0);
+    tetrimino->setBoard((char const*)board);
+    nextTet = new Tetrimino(1);
 }
 
 void TETRIS::draw(cuiwin::Window *win) {
@@ -79,8 +81,9 @@ void TETRIS::goNextPhase() {
 
     delete tetrimino;
     std::random_device rnd;
-    tetrimino = new Tetrimino(rnd()%7, (char const*)board);
-    nextTet = new Tetrimino(rnd()%7, (char const*) board);
+    tetrimino = nextTet;
+    tetrimino->setBoard((char const*)board);
+    nextTet = new Tetrimino(rnd()%7);
 }
 
 void TETRIS::drawBoard(cuiwin::Window *win) {

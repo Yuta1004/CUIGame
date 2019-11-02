@@ -7,16 +7,17 @@
 class Tetrimino {
 
 public:
-    Tetrimino(int id, char const *board);
+    Tetrimino(int id);
     int getX();
     int getY();
+    const char *getState();
+    void setBoard(char const *board);
     void moveL();
     void moveR();
     void rotateL();
     void rotateR();
     void down();
     void downShot();
-    const char *getState();
     bool confirm();
 
 private:
