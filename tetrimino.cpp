@@ -28,13 +28,21 @@ int Tetrimino::getY() {
     return y;
 }
 
-void Tetrimino::rotate() {
-    if(id == 6) return; // 四角テトリミノは回転なし
-
+void Tetrimino::rotateL() {
     char *newBlock = (char*)calloc(16, sizeof(char));
     for(int y = 0; y < 4 ; ++ y)
         for(int x = 0; x < 4; ++ x)
             newBlock[y+(3-x)*4] = block[y][x];
+    for(int idx = 0; idx < 16; ++ idx)
+        block[idx/4][idx%4] = newBlock[idx];
+    free(newBlock);
+}
+
+void Tetrimino::rotateR() {
+    char *newBlock = (char*)calloc(16, sizeof(char));
+    for(int y = 0; y < 4 ; ++ y)
+        for(int x = 0; x < 4; ++ x)
+            newBlock[(3-y)+x*4] = block[y][x];
     for(int idx = 0; idx < 16; ++ idx)
         block[idx/4][idx%4] = newBlock[idx];
     free(newBlock);

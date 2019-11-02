@@ -10,7 +10,8 @@ public:
     Tetrimino(int id);
     int getX();
     int getY();
-    void rotate();
+    void rotateL();
+    void rotateR();
     void down();
     const char *getState();
 
