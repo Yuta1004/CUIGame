@@ -13,6 +13,13 @@ void TETRIS::draw(cuiwin::Window *win) {
     win->setChar('|');
     win->drawRect(30, 0, 1, 40);
 
+    // 盤面描画
+    win->setChar('*');
+    for(int y = 0; y < 20; ++ y)
+        for(int x = 0; x < 10; ++ x)
+            if(board[y][x])
+                win->drawRect(x*3, y*2, 3, 2);
+
     // スコアなど
     win->drawText(32, 5, "SCORE : %d", score);
     win->drawText(32, 7, "LINE  : %d", line);
