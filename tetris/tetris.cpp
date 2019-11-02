@@ -2,7 +2,7 @@
 #include <vector>
 #include <random>
 #include "tetris.h"
-#include "window.h"
+#include "../window.h"
 
 TETRIS::TETRIS() : Game(50, 40){}
 

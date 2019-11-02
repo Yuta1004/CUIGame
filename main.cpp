@@ -1,5 +1,5 @@
 #include "game.h"
-#include "tetris.h"
+#include "tetris/tetris.h"
 
 int main() {
     mgame::Game *tetris = (mgame::Game*)new TETRIS();

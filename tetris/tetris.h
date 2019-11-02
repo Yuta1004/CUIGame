@@ -1,8 +1,8 @@
 #ifndef TETRISH
 #define TETRISH
 
-#include "game.h"
-#include "window.h"
+#include "../game.h"
+#include "../window.h"
 
 static char blockBase[7][4][4] = {
     {{0, 0, 0, 0}, {1, 1, 1, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}},
