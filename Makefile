@@ -15,7 +15,7 @@ run:
 
 
 test-window:
-	$(G++) -o window_test window_test.cpp window.cpp
+	$(G++) -o window_test test/window_test.cpp window.cpp
 	./window_test
 
 
