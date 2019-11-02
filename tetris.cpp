@@ -21,12 +21,7 @@ void TETRIS::draw(cuiwin::Window *win) {
     drawBoard(win);
 
     // テトリミノ描画
-    int bx = tetrimino->getX(), by = tetrimino->getY();
-    const char *blockState = tetrimino->getState();
-    for(int y = 0; y < 4; ++ y)
-        for(int x = 0; x < 4; ++ x)
-            if(blockState[x+y*4])
-                win->drawRect((bx+x)*3, (by+y)*2, 3, 2);
+    drawTetrimino(win);
 
     // テトリミノ落下 -> 確定チェック
     if(frameCnt % 10 == 0)
@@ -77,6 +72,15 @@ void TETRIS::drawBoard(cuiwin::Window *win) {
         for(int x = 0; x < 10; ++ x)
             if(board[y][x])
                 win->drawRect(x*3, y*2, 3, 2);
+}
+
+void TETRIS::drawTetrimino(cuiwin::Window *win) {
+    int bx = tetrimino->getX(), by = tetrimino->getY();
+    const char *blockState = tetrimino->getState();
+    for(int y = 0; y < 4; ++ y)
+        for(int x = 0; x < 4; ++ x)
+            if(blockState[x+y*4])
+                win->drawRect((bx+x)*3, (by+y)*2, 3, 2);
 }
 
 void TETRIS::updateBoard() {

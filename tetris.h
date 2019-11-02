@@ -42,6 +42,7 @@ private:
     Tetrimino *tetrimino;
 
     void drawBoard(cuiwin::Window *win);
+    void drawTetrimino(cuiwin::Window *win);
     void updateBoard();
 };
 
