@@ -16,7 +16,7 @@ public:
 
 private:
     int id, x, y;
-    char block[5][5];
+    char block[4][4];
 
 };
 
