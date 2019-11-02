@@ -16,8 +16,8 @@ Tetrimino::Tetrimino(int id) {
         for(int x = 0; x < 5; ++ x)
             block[y][x] = blockBase[id][y][x];
     this->id = id;
-    this->x = 7;
-    this->y = 0;
+    this->x = 2;
+    this->y = -5;
 }
 
 int Tetrimino::getX() {
