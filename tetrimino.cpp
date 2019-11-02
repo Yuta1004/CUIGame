@@ -20,6 +20,14 @@ Tetrimino::Tetrimino(int id) {
     this->y = 0;
 }
 
+int Tetrimino::getX() {
+    return x;
+}
+
+int Tetrimino::getY() {
+    return y;
+}
+
 void Tetrimino::rotate() {
     if(id == 6) return; // 四角テトリミノは回転なし
 
