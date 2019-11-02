@@ -28,6 +28,14 @@ int Tetrimino::getY() {
     return y;
 }
 
+void Tetrimino::moveL() {
+    -- x;
+}
+
+void Tetrimino::moveR() {
+    ++ x;
+}
+
 void Tetrimino::rotateL() {
     char *newBlock = (char*)calloc(16, sizeof(char));
     for(int y = 0; y < 4 ; ++ y)

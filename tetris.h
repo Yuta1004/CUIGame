@@ -10,6 +10,8 @@ public:
     Tetrimino(int id);
     int getX();
     int getY();
+    void moveL();
+    void moveR();
     void rotateL();
     void rotateR();
     void down();

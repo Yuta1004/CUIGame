@@ -43,7 +43,25 @@ void TETRIS::draw(cuiwin::Window *win) {
 
 void TETRIS::keyPressed(char key) {
     ++ cnt;
-    if(key == 'a') tetrimino->rotateL();
-    if(key == 'd') tetrimino->rotateR();
-    if(key == 'q') exit(0);
+    switch(key) {
+    case 'a':
+        tetrimino->rotateL();
+        break;
+
+    case'd':
+        tetrimino->rotateR();
+        break;
+
+    case 'j':
+        tetrimino->moveL();
+        break;
+
+    case 'l':
+        tetrimino->moveR();
+        break;
+
+    case 'q':
+        exit(0);
+        break;
+    }
 }
