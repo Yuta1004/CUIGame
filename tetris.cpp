@@ -38,7 +38,14 @@ void TETRIS::draw(cuiwin::Window *win) {
     win->drawText(32, 7, "LINE  : %d", line);
     win->drawText(32, 9, "LEVEL : %d", level);
     win->drawText(32, 11, "TIME  : %d", frameCnt);
+    win->drawText(32, 20, "HOLD");
+    win->drawText(32, 28, "NEXT");
     ++ frameCnt;
+
+    // NEXT, HOLD
+    if(holdTet != NULL)
+        drawTetrimino(win, holdTet, 11, 10);
+    drawTetrimino(win, nextTet, 11, 14);
 }
 
 void TETRIS::keyPressed(char key) {
