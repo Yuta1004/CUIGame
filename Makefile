@@ -7,7 +7,7 @@ make:
 
 
 build:
-	$(G++) -o main main.cpp window.cpp kbhit.c
+	$(G++) -o main main.cpp window.cpp kbhit.c gamemanager.cpp tetris.cpp tetrimino.cpp
 
 
 run:
@@ -27,3 +27,7 @@ test-game:
 test-gameman:
 	$(G++) -o gamemanager_test gamemanager_test.cpp window.cpp gamemanager.cpp kbhit.c
 	./gamemanager_test
+
+
+clean:
+	rm -rf main *_test

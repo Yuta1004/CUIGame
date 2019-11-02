@@ -16,6 +16,7 @@ GameManager::GameManager(mgame::Game *game, int width, int height) {
     this->game = game;
     this->frameRate = 10;
     this->win = new cuiwin::Window(width, height);
+    this->game->init();
 }
 
 GameManager::~GameManager() {
@@ -41,7 +42,9 @@ void GameManager::run() {
         char key = checkKeyState();
         if(key)
             game->keyPressed(key);
+        win->refresh();
         game->draw(win);
+        win->update();
         usleep(1000.0/frameRate*MILLI);
     }
 }
