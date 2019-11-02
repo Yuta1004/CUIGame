@@ -7,7 +7,7 @@
 class Tetrimino {
 
 public:
-    Tetrimino(int id);
+    Tetrimino(int id, char const *board);
     int getX();
     int getY();
     void moveL();
@@ -19,6 +19,7 @@ public:
 
 private:
     int id, x, y;
+    char const *board;
     char block[4][4];
 
 };

@@ -7,7 +7,7 @@ void TETRIS::init() {
     line = 0;
     level = 1;
     frameCnt = 0;
-    tetrimino = new Tetrimino(0);
+    tetrimino = new Tetrimino(0, (char const*)board);
 }
 
 void TETRIS::draw(cuiwin::Window *win) {

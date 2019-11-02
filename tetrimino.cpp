@@ -1,7 +1,7 @@
 #include <iostream>
 #include "tetris.h"
 
-Tetrimino::Tetrimino(int id) {
+Tetrimino::Tetrimino(int id, char const *board) {
     static char blockBase[7][4][4] = {
         {{0, 0, 0, 0}, {1, 1, 1, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}},
         {{0, 0, 0, 0}, {1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 0}},
@@ -18,6 +18,7 @@ Tetrimino::Tetrimino(int id) {
     this->id = id;
     this->x = 2;
     this->y = -5;
+    this->board = board;
 }
 
 int Tetrimino::getX() {
