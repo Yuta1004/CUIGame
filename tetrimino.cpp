@@ -17,7 +17,7 @@ Tetrimino::Tetrimino(int id, char const *board) {
             block[y][x] = blockBase[id][y][x];
     this->id = id;
     this->x = 2;
-    this->y = 0;
+    this->y = -2;
     this->board = board;
     this->confirmFlag = false;
 }
