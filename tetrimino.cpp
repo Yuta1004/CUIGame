@@ -15,11 +15,14 @@ Tetrimino::Tetrimino(int id) {
     for(int y = 0; y < 5; ++ y)
         for(int x = 0; x < 5; ++ x)
             block[y][x] = blockBase[id][y][x];
+    this->id = id;
     this->x = 7;
     this->y = 0;
 }
 
 void Tetrimino::rotate() {
+    if(id == 6) return; // 四角テトリミノは回転なし
+
     char *newBlock = (char*)calloc(25, sizeof(char));
     for(int y = 0; y < 5; ++ y)
         for(int x = 0; x < 5; ++ x)

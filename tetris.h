@@ -26,8 +26,7 @@ public:
     char block[5][5];
 
 private:
-    int x, y;
-    /* char block[5][5]; */
+    int id, x, y;
 
 };
 
