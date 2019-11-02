@@ -29,7 +29,7 @@ public:
     void keyPressed(char key);
 
 private:
-    int cnt, score, line, level;
+    int cnt, score, line, level, frameCnt;
     char board[20][10];
     Tetrimino *tetrimino;
 };

@@ -6,6 +6,8 @@ void TETRIS::init() {
     score = 0;
     line = 0;
     level = 1;
+    frameCnt = 0;
+
     tetrimino = new Tetrimino(4);
     for(int tmp = 0; tmp < 7; ++ tmp)
         tetrimino->down();
@@ -35,6 +37,8 @@ void TETRIS::draw(cuiwin::Window *win) {
     win->drawText(32, 5, "SCORE : %d", score);
     win->drawText(32, 7, "LINE  : %d", line);
     win->drawText(32, 9, "LEVEL : %d", level);
+    win->drawText(32, 11, "TIME : %d", frameCnt);
+    ++ frameCnt;
 }
 
 void TETRIS::keyPressed(char key) {
