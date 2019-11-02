@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unistd.h>
-#include "../window.h"
+#include "../game/window.h"
 
 int main() {
     cuiwin::Window win(40, 30);

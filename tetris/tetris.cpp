@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include "../game/window.h"
 #include "tetris.h"
-#include "../window.h"
 
 TETRIS::TETRIS() : Game(50, 40){}
 

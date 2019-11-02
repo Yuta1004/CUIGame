@@ -7,7 +7,7 @@ make:
 
 
 build:
-	$(G++) -o main main.cpp game.cpp window.cpp kbhit.c tetris/tetris.cpp tetris/tetrimino.cpp
+	$(G++) -o main main.cpp game/game.cpp game/window.cpp game/kbhit.c tetris/tetris.cpp tetris/tetrimino.cpp
 
 
 run:
@@ -15,13 +15,9 @@ run:
 
 
 test-window:
-	$(G++) -o window_test test/window_test.cpp window.cpp
+	$(G++) -o window_test test/window_test.cpp game/window.cpp
 	./window_test
 
-
-test-game:
-	$(G++) -o game_test game_test.cpp window.cpp
-	./game_test
 
 clean:
 	rm -rf main *_test
