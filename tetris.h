@@ -40,6 +40,8 @@ private:
     int cnt, score, line, level, frameCnt;
     char board[20][10];
     Tetrimino *tetrimino;
+
+    void updateBoard();
 };
 
 

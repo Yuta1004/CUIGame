@@ -44,8 +44,10 @@ void Tetrimino::moveR() {
 
 void Tetrimino::down() {
     ++ y;
-    if(checkHit())
+    if(checkHit()) {
+        -- y;
         confirmFlag = true;
+    }
 }
 
 void Tetrimino::rotateL() {

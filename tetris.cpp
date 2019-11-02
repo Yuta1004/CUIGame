@@ -1,3 +1,4 @@
+#include <iostream>
 #include <random>
 #include "tetris.h"
 #include "window.h"
@@ -35,6 +36,7 @@ void TETRIS::draw(cuiwin::Window *win) {
     if(frameCnt % 10 == 0)
         tetrimino->down();
     if(tetrimino->confirm()) {
+        updateBoard();
         delete tetrimino;
         std::random_device rnd;
         tetrimino = new Tetrimino(rnd()%7, (char const*)board);
@@ -71,4 +73,13 @@ void TETRIS::keyPressed(char key) {
         exit(0);
         break;
     }
+}
+
+void TETRIS::updateBoard() {
+    int bx = tetrimino->getX(), by = tetrimino->getY();
+    const char *blockState = tetrimino->getState();
+    for(int y = 0; y < 4; ++ y)
+        for(int x = 0; x < 4; ++ x)
+            if(blockState[x+y*4])
+                board[by+y][bx+x] = 1;
 }
