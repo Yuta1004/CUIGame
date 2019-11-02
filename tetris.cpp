@@ -33,6 +33,9 @@ void TETRIS::draw(cuiwin::Window *win) {
             if(blockState[x+y*4])
                 win->drawRect((bx+x)*3, (by+y)*2, 3, 2);
 
+    if(frameCnt % 10 == 0)
+        tetrimino->down();
+
     // スコアなど
     win->drawText(32, 5, "SCORE : %d", score);
     win->drawText(32, 7, "LINE  : %d", line);
