@@ -22,6 +22,8 @@ private:
     char const *board;
     char block[4][4];
 
+    bool checkHit();
+
 };
 
 

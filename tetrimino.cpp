@@ -17,7 +17,7 @@ Tetrimino::Tetrimino(int id, char const *board) {
             block[y][x] = blockBase[id][y][x];
     this->id = id;
     this->x = 2;
-    this->y = -5;
+    this->y = 0;
     this->board = board;
 }
 
@@ -31,10 +31,20 @@ int Tetrimino::getY() {
 
 void Tetrimino::moveL() {
     -- x;
+    if(!checkHit())
+        ++ x;
 }
 
 void Tetrimino::moveR() {
     ++ x;
+    if(!checkHit())
+        -- x;
+}
+
+void Tetrimino::down() {
+    ++ y;
+    if(!checkHit())
+        -- y;
 }
 
 void Tetrimino::rotateL() {
@@ -57,10 +67,20 @@ void Tetrimino::rotateR() {
     free(newBlock);
 }
 
-void Tetrimino::down() {
-    ++ this->y;
-}
-
 const char *Tetrimino::getState() {
     return (const char*)block;
+}
+
+bool Tetrimino::checkHit() {
+    bool result = true;
+    int bx = this->x, by = this->y;
+
+    for(int y = 0; y < 4; ++ y) {
+        for(int x = 0; x < 4; ++ x) {
+            result &= ((0 <= bx+x && bx+x < 10) || !block[y][x]);
+            result &= ((0 <= by+y && by+y < 20) || !block[y][x]);
+            result &= !(board[bx+x+(by+y)*10] && block[y][x]);
+        }
+    }
+    return result;
 }
