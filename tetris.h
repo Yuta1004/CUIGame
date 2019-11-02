@@ -31,6 +31,7 @@ public:
 private:
     int cnt, score, line, level;
     char board[20][10];
+    Tetrimino *tetrimino;
 };
 
 
