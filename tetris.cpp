@@ -4,6 +4,8 @@
 #include "tetris.h"
 #include "window.h"
 
+TETRIS::TETRIS() : Game(50, 40){}
+
 void TETRIS::init() {
     cnt = 0;
     score = 0;

@@ -1,11 +1,9 @@
-#include "gamemanager.h"
 #include "game.h"
 #include "tetris.h"
 
 int main() {
-    TETRIS *tetris = new TETRIS();
-    mgameman::GameManager man((mgame::Game*)tetris, 50, 40);
-    man.setFrameRate(30);
-    man.run();
+    mgame::Game *tetris = (mgame::Game*)new TETRIS();
+    tetris->setFrameRate(30);
+    tetris->run();
 }
 

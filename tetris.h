@@ -45,6 +45,7 @@ private:
 class TETRIS : mgame::Game {
 
 public:
+    TETRIS();
     void init();
     void draw(cuiwin::Window *w);
     void keyPressed(char key);
