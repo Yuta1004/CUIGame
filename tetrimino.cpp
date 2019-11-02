@@ -31,3 +31,7 @@ void Tetrimino::rotate() {
         block[idx/5][idx%5] = newBlock[idx];
     free(newBlock);
 }
+
+void Tetrimino::down() {
+    ++ this->y;
+}
