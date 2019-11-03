@@ -9,6 +9,8 @@ void Snake::init() {
     std::random_device rnd;
     x = rnd() % 15 + 5;
     y = rnd() % 5 + 5;
+    appleX = rnd() % 30;
+    appleY = rnd() % 15;
     dx = 0;
     dy = 1;
 }
@@ -18,6 +20,9 @@ void Snake::draw(yngame::Window *win) {
         x += dx;
         y += dy;
     }
+
+    win->setChar('@');
+    win->drawDot(appleX*3, appleY*2);
 
     win->setChar('*');
     win->drawRect(x*3, y*2, 3, 2);

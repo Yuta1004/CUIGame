@@ -14,7 +14,7 @@ public:
     void keyPressed(char key);
 
 private:
-    int x, y, dx, dy, frameCnt;
+    int x, y, dx, dy, appleX, appleY, frameCnt;
 
 };
 
