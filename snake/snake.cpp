@@ -26,7 +26,26 @@ void Snake::draw(yngame::Window *win) {
 }
 
 void Snake::keyPressed(char key) {
+    dx = 0;
+    dy = 0;
+
     switch(key) {
+    case 'j':
+        dx = -1;
+        break;
+
+    case 'l':
+        dx = 1;
+        break;
+
+    case 'i':
+        dy = -1;
+        break;
+
+    case 'k':
+        dy = 1;
+        break;
+
     case 'q':
         quit();
     }
