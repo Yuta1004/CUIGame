@@ -21,13 +21,13 @@ void Tower::draw(yngame::Window *win) {
     for(int idx = 0; idx < 20; ++ idx) {
         int x = blockInfo[idx].first;
         int len = blockInfo[idx].second;
-        win->drawRect((x-len)*3, idx*2, len*3, 2);
+        win->drawRect((x-25)*3, idx*2, len*3, 2);
     }
 
     // バー
-    win->drawRect((barX-barLen)*3, (19-height)*2, barLen*3, 2);
+    win->drawRect((barX-25)*3, (19-height)*2, barLen*3, 2);
     ++ barX;
-    barX %= 25+barLen;
+    barX %= 50;
 }
 
 void Tower::keyPressed(char key) {
@@ -49,8 +49,14 @@ void Tower::makeNewBar() {
 
 void Tower::reflectBlock() {
     int h = 19-height;
-    blockInfo[h].first = barX;
-    blockInfo[h].second = barLen;
+    int oldBarX = -1, oldBarLen = 99;
+    if(h < 19){
+        oldBarX = blockInfo[h+1].first;
+        oldBarLen = blockInfo[h+1].second;
+    }
+
+    blockInfo[h].first = std::max(oldBarX, barX);
+    blockInfo[h].second = std::min(barX+barLen, oldBarX+oldBarLen) - blockInfo[h].first;
     ++ height;
     makeNewBar();
 }
