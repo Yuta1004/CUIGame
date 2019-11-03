@@ -18,6 +18,8 @@ private:
     int x, y, dx, dy, appleX, appleY, frameCnt;
     std::deque<std::pair<int, int>> tail;
 
+    void stepSnake();
+
 };
 
 #endif

@@ -13,19 +13,12 @@ void Snake::init() {
     appleY = rnd() % 15;
     dx = 0;
     dy = 1;
-    tail.emplace_back(x, y);
+    tail.emplace_front(x, y);
 }
 
 void Snake::draw(yngame::Window *win) {
-    if(frameCnt % 15 == 0) {
-        x += dx;
-        y += dy;
-        if(x == appleX && y == appleY) {
-            std::random_device rnd;
-            appleX = rnd() % 20;
-            appleY = rnd() % 15;
-        }
-    }
+    if(frameCnt % 5 == 0)
+        stepSnake();
 
     win->setChar('@');
     win->drawDot(appleX*3, appleY*2);
@@ -62,4 +55,18 @@ void Snake::keyPressed(char key) {
     case 'q':
         quit();
     }
+}
+
+void Snake::stepSnake() {
+    x += dx;
+    y += dy;
+    if(x == appleX && y == appleY) {
+        std::random_device rnd;
+        appleX = rnd() % 20;
+        appleY = rnd() % 15;
+        auto backPos = tail.back();
+        tail.emplace_back(backPos.first, backPos.second);
+    }
+    tail.pop_back();
+    tail.emplace_front(x, y);
 }
