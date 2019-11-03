@@ -13,6 +13,10 @@ public:
     void draw(yngame::Window *win);
     void keyPressed(char key);
 
+private:
+    int height, barLen;
+    std::pair<int, int> blockInfo[25];
+
 };
 
 #endif
