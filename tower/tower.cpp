@@ -49,7 +49,7 @@ void Tower::keyPressed(char key) {
 void Tower::makeNewBar() {
     std::random_device rnd;
     barX = 0;
-    barLen = rnd() % 25 + height/2;
+    barLen = rnd() % (25-height) + (19-height)/4;
 }
 
 void Tower::reflectBlock() {
