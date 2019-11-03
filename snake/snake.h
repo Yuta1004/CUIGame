@@ -1,7 +1,7 @@
 #ifndef SNAKEH
 #define SNAKEH
 
-#include <vector>
+#include <deque>
 #include "../game/game.h"
 #include "../game/window.h"
 
@@ -16,7 +16,7 @@ public:
 
 private:
     int x, y, dx, dy, appleX, appleY, frameCnt;
-    std::vector<std::pair<int, int>> tail;
+    std::deque<std::pair<int, int>> tail;
 
 };
 

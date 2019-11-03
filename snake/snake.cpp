@@ -13,6 +13,7 @@ void Snake::init() {
     appleY = rnd() % 15;
     dx = 0;
     dy = 1;
+    tail.emplace_back(x, y);
 }
 
 void Snake::draw(yngame::Window *win) {
@@ -62,4 +63,3 @@ void Snake::keyPressed(char key) {
         quit();
     }
 }
-
