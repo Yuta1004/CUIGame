@@ -7,7 +7,7 @@ make:
 
 
 build:
-	$(G++) -o main main.cpp game/game.cpp game/window.cpp game/kbhit.c tetris/tetris.cpp tetris/tetrimino.cpp
+	$(G++) -o main main.cpp game/game.cpp game/window.cpp game/kbhit.c tetris/tetris.cpp tetris/tetrimino.cpp helloworld/hello.cpp
 
 
 run:

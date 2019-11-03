@@ -2,6 +2,7 @@
 #include <iostream>
 #include "game/game.h"
 #include "tetris/tetris.h"
+#include "helloworld/hello.h"
 
 using std::cout;
 using std::cin;
@@ -12,7 +13,7 @@ yngame::Game* startupGame(int gameID) {
     case 1:
         return (yngame::Game*)new TETRIS();
     default:
-        return (yngame::Game*)new TETRIS();;
+        return (yngame::Game*)new HelloWorld();;
     }
 }
 
