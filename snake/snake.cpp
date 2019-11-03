@@ -29,8 +29,10 @@ void Snake::draw(yngame::Window *win) {
     win->setChar('@');
     win->drawDot(appleX*3, appleY*2);
 
-    win->setChar('*');
-    win->drawRect(x*3, y*2, 3, 2);
+    for(auto pos = std::begin(tail); pos != std::end(tail); ++ pos) {
+        win->setChar('*');
+        win->drawRect(pos->first*3, pos->second*2, 3, 2);
+    }
 
     ++ frameCnt;
 }
