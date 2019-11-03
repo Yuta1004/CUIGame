@@ -10,6 +10,6 @@ void HelloWorld::draw(yngame::Window *win) {
 }
 
 void HelloWorld::keyPressed(char key) {
-    if(key == 'q') exit(0);
+    if(key == 'q') quit();
 }
 
