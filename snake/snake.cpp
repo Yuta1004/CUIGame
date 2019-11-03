@@ -8,5 +8,10 @@ void Snake::init() {}
 
 void Snake::draw(yngame::Window *win) {}
 
-void Snake::keyPressed(char key) {}
+void Snake::keyPressed(char key) {
+    switch(key) {
+    case 'q':
+        quit();
+    }
+}
 
