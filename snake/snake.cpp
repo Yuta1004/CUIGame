@@ -4,7 +4,7 @@
 
 #define all(x) (x).begin(), (x).end()
 
-Snake::Snake() : Game(60, 30){}
+Snake::Snake() : Game(60, 34){}
 
 Snake::~Snake() {}
 
@@ -22,6 +22,7 @@ void Snake::init() {
 void Snake::draw(yngame::Window *win) {
     if(frameCnt % 5 == 0)
         stepSnake();
+    ++ frameCnt;
 
     win->setChar('@');
     win->drawDot(appleX*3, appleY*2);
@@ -31,7 +32,9 @@ void Snake::draw(yngame::Window *win) {
         win->drawRect(pos->first*3, pos->second*2, 3, 2);
     }
 
-    ++ frameCnt;
+    win->setChar('-');
+    win->drawRect(0, 30, 60, 1);
+    win->drawText(26, 32, "SCORE : %d", tail.size());
 }
 
 void Snake::keyPressed(char key) {
