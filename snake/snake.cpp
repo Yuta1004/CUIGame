@@ -1,4 +1,5 @@
 #include <random>
+#include <algorithm>
 #include "snake.h"
 
 Snake::Snake() : Game(60, 30){}
@@ -57,16 +58,22 @@ void Snake::keyPressed(char key) {
     }
 }
 
+void Snake::putApple() {
+    std::random_device rnd;
+    do {
+        appleX = rnd() % 20;
+        appleY = rnd() % 15;
+    }while(std::find(tail.begin(), tail.end(), std::make_pair(appleX, appleY)) != tail.end());
+
+    auto backPos = tail.back();
+    tail.emplace_back(backPos.first, backPos.second);
+}
+
 void Snake::stepSnake() {
     x += dx;
     y += dy;
-    if(x == appleX && y == appleY) {
-        std::random_device rnd;
-        appleX = rnd() % 20;
-        appleY = rnd() % 15;
-        auto backPos = tail.back();
-        tail.emplace_back(backPos.first, backPos.second);
-    }
+    if(x == appleX && y == appleY)
+        putApple();
     tail.pop_back();
     tail.emplace_front(x, y);
 }
