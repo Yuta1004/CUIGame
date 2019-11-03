@@ -59,11 +59,13 @@ void Tower::reflectBlock() {
         oldBarX = blockInfo[h+1].first;
         oldBarLen = blockInfo[h+1].second;
     }
-
     blockInfo[h].first = std::max(oldBarX, barX);
     blockInfo[h].second = std::min(barX+barLen, oldBarX+oldBarLen) - blockInfo[h].first;
-    if(blockInfo[h].second <= 0)
+
+    if(blockInfo[h].second <= 0 || height == 19) {
         quit();
+        return;
+    }
     ++ height;
     makeNewBar();
 }
