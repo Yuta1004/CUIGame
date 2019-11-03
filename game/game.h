@@ -9,7 +9,7 @@ namespace yngame {
 
     public:
         Game(int width, int height);
-        ~Game();
+        virtual ~Game();
         void setFrameRate(int frameRate);
         int getFrameRate();
         void run();

@@ -30,6 +30,6 @@ int main() {
     yngame::Game *game = startupGame(gameID);
     game->setFrameRate(30);
     game->run();
-    free(game);
+    delete game;
 }
 

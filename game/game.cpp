@@ -13,6 +13,10 @@ Game::Game(int width, int height) {
     this->doExec = true;
 }
 
+Game::~Game() {
+    delete this->win;
+}
+
 void Game::setFrameRate(int frameRate) {
     this->frameRate = frameRate;
 }
