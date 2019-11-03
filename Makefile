@@ -11,6 +11,7 @@ make:
 .PHONY: build
 build: $(GAME_SRCS)
 	make -C tetris
+	make -C snake
 	make -C helloworld
 	$(G++) -o main main.cpp $(GAME_SRCS) $(wildcard build/*.o)
 
