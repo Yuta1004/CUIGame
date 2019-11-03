@@ -9,7 +9,7 @@ void Snake::init() {
     std::random_device rnd;
     x = rnd() % 15 + 5;
     y = rnd() % 5 + 5;
-    appleX = rnd() % 30;
+    appleX = rnd() % 20;
     appleY = rnd() % 15;
     dx = 0;
     dy = 1;
@@ -19,6 +19,11 @@ void Snake::draw(yngame::Window *win) {
     if(frameCnt % 15 == 0) {
         x += dx;
         y += dy;
+        if(x == appleX && y == appleY) {
+            std::random_device rnd;
+            appleX = rnd() % 20;
+            appleY = rnd() % 15;
+        }
     }
 
     win->setChar('@');
