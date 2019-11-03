@@ -2,7 +2,7 @@
 #include <random>
 #include "tower.h"
 
-Tower::Tower() : Game(50, 40) {}
+Tower::Tower() : Game(50, 44) {}
 
 Tower::~Tower() {}
 
@@ -28,6 +28,11 @@ void Tower::draw(yngame::Window *win) {
     win->drawRect((barX-25)*3, (19-height)*2, barLen*3, 2);
     ++ barX;
     barX %= 50;
+
+    // スコア
+    win->setChar('-');
+    win->drawRect(0, 40, 50, 1);
+    win->drawText(20, 42, "SCORE : %d", height);
 }
 
 void Tower::keyPressed(char key) {
