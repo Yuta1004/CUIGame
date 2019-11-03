@@ -8,6 +8,7 @@ class HelloWorld : yngame::Game {
 
 public:
     HelloWorld();
+    ~HelloWorld();
     void init();
     void draw(yngame::Window *win);
     void keyPressed(char key);

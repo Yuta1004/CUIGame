@@ -2,6 +2,8 @@
 
 HelloWorld::HelloWorld() : Game(40, 10) {}
 
+HelloWorld::~HelloWorld() {}
+
 void HelloWorld::init() {}
 
 void HelloWorld::draw(yngame::Window *win) {
