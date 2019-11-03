@@ -24,9 +24,9 @@ void Tower::draw(yngame::Window *win) {
     }
 
     // バー
-    win->drawRect(barX*3, (19-height)*2, barLen, 2);
+    win->drawRect((barX-barLen)*3, (19-height)*2, barLen*3, 2);
     ++ barX;
-    barX %= 25;
+    barX %= 25+barLen;
 }
 
 void Tower::keyPressed(char key) {
@@ -39,5 +39,5 @@ void Tower::keyPressed(char key) {
 void Tower::makeNewBar() {
     std::random_device rnd;
     barX = 0;
-    barLen = rnd() % 25;
+    barLen = rnd() % 25 + height/2;
 }
