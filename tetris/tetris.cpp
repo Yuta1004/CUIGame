@@ -6,6 +6,12 @@
 
 TETRIS::TETRIS() : Game(50, 40){}
 
+TETRIS::~TETRIS() {
+    delete this->tetrimino;
+    delete this->nextTet;
+    delete this->holdTet;
+}
+
 void TETRIS::init() {
     cnt = 0;
     score = 0;

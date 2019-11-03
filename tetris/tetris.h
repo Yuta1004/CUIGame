@@ -46,6 +46,7 @@ class TETRIS : yngame::Game {
 
 public:
     TETRIS();
+    ~TETRIS();
     void init();
     void draw(yngame::Window *w);
     void keyPressed(char key);
