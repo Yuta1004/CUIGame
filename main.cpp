@@ -3,6 +3,7 @@
 #include "game/game.h"
 #include "tetris/tetris.h"
 #include "snake/snake.h"
+#include "tower/tower.h"
 #include "helloworld/hello.h"
 
 using std::cout;
@@ -15,6 +16,8 @@ yngame::Game* startupGame(int gameID) {
         return (yngame::Game*)new TETRIS();
     case 2:
         return (yngame::Game*)new Snake();
+    case 3:
+        return (yngame::Game*)new Tower();
     default:
         return (yngame::Game*)new HelloWorld();;
     }
@@ -27,6 +30,7 @@ int main() {
     cout << "----- Select Game ----" << endl;
     cout << "1. TETRIS" << endl;
     cout << "2. Snake" << endl;
+    cout << "3, Tower" << endl;
     cout << "\n>> ";
     cin >> gameID;
     cout << "\n\n" << endl;;
