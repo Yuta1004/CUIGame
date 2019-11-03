@@ -13,6 +13,7 @@ namespace yngame {
         void setFrameRate(int frameRate);
         int getFrameRate();
         void run();
+        void quit();
 
         virtual void init() = 0;
         virtual void draw(Window *w) = 0;
@@ -22,6 +23,7 @@ namespace yngame {
     private:
         int frameRate;
         Window *win;
+        bool doExec;
 
         char checkKeyState();
     };

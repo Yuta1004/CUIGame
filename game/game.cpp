@@ -10,6 +10,7 @@ using namespace yngame;
 
 Game::Game(int width, int height) {
     this->win = new Window(width, height);
+    this->doExec = true;
 }
 
 void Game::setFrameRate(int frameRate) {
@@ -29,7 +30,7 @@ char Game::checkKeyState() {
 void Game::run() {
     init();
 
-    while(1) {
+    while(doExec) {
         char key = checkKeyState();
         if(key)
             keyPressed(key);
@@ -38,4 +39,8 @@ void Game::run() {
         win->update();
         usleep(1000.0/frameRate*MILLI);
     }
+}
+
+void Game::quit() {
+    doExec = false;
 }
