@@ -2,6 +2,8 @@
 #include <algorithm>
 #include "snake.h"
 
+#define all(x) (x).begin(), (x).end()
+
 Snake::Snake() : Game(60, 30){}
 
 Snake::~Snake() {}
@@ -63,7 +65,7 @@ void Snake::putApple() {
     do {
         appleX = rnd() % 20;
         appleY = rnd() % 15;
-    }while(std::find(tail.begin(), tail.end(), std::make_pair(appleX, appleY)) != tail.end());
+    }while(std::find(all(tail), std::make_pair(appleX, appleY)) != tail.end());
 
     auto backPos = tail.back();
     tail.emplace_back(backPos.first, backPos.second);
@@ -74,6 +76,9 @@ void Snake::stepSnake() {
     y += dy;
     if(x == appleX && y == appleY)
         putApple();
+
     tail.pop_back();
     tail.emplace_front(x, y);
+    if(std::count(all(tail), std::make_pair(x, y)) != 1)
+        quit();
 }
