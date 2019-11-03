@@ -15,4 +15,4 @@ make
 
 ## 動作画面
 
-![Imgur](https://i.imgur.com/KPYSZO0.png)
+<img src="https://i.imgur.com/KPYSZO0.png" width="400">
