@@ -14,8 +14,10 @@ public:
     void keyPressed(char key);
 
 private:
-    int height, barLen;
+    int height, barX, barLen;
     std::pair<int, int> blockInfo[25];
+
+    void makeNewBar();
 
 };
 

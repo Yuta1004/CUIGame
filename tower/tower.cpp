@@ -1,3 +1,4 @@
+#include <random>
 #include "tower.h"
 
 Tower::Tower() : Game(50, 40) {}
@@ -28,3 +29,8 @@ void Tower::keyPressed(char key) {
     }
 }
 
+void Tower::makeNewBar() {
+    std::random_device rnd;
+    barX = 0;
+    barLen = rnd() % 25;
+}
