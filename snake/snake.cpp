@@ -74,6 +74,8 @@ void Snake::putApple() {
 void Snake::stepSnake() {
     x += dx;
     y += dy;
+    if(x < 0 || 20 <= x || y < 0 || 15 <= y)
+        quit();
     if(x == appleX && y == appleY)
         putApple();
 
