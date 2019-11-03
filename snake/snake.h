@@ -13,6 +13,9 @@ public:
     void draw(yngame::Window *win);
     void keyPressed(char key);
 
+private:
+    int x, y, dx, dy, frameCnt;
+
 };
 
 #endif
