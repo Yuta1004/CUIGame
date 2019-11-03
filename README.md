@@ -11,7 +11,8 @@ make
 
 ## ゲーム一覧
 
-- TETRIS(っぽい何か)
+- TETRIS
+- Snake
 
 ## 動作画面
 
