@@ -1,3 +1,4 @@
+#include <cmath>
 #include <random>
 #include "tower.h"
 
@@ -31,6 +32,10 @@ void Tower::draw(yngame::Window *win) {
 
 void Tower::keyPressed(char key) {
     switch(key) {
+    case ' ':
+        reflectBlock();
+        break;
+
     case 'q':
         quit();
     }
@@ -40,4 +45,12 @@ void Tower::makeNewBar() {
     std::random_device rnd;
     barX = 0;
     barLen = rnd() % 25 + height/2;
+}
+
+void Tower::reflectBlock() {
+    int h = 19-height;
+    blockInfo[h].first = barX;
+    blockInfo[h].second = barLen;
+    ++ height;
+    makeNewBar();
 }
