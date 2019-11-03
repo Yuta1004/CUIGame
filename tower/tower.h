@@ -15,7 +15,7 @@ public:
 
 private:
     int height, barX, barLen;
-    std::pair<int, int> blockInfo[25];
+    std::pair<int, int> blockInfo[20];
 
     void makeNewBar();
 
